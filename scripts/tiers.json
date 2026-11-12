@@ -1,0 +1,36 @@
+{
+  "_说明": "Codex 模型档位。默认 auto=true：每次派单都按本机 Codex 模型清单（~/.codex/models_cache.json，Codex 运行时自动刷新）里的官方描述自动选型——描述含 match 关键词、且不含 previous/older 的模型中取版本号最高者。所以 Codex 出了新的顶级模型会自动顶上，不把某个型号当永久顶配。pinned 只在自动匹配失败时兜底，由 `cxp models --sync` 自动刷新；pinned 也不可用时退回你在 ~/.codex/config.toml 里设的默认模型。effort 是推理强度。想固定用某个型号：把 auto 改成 false，再改 pinned。",
+  "auto": true,
+  "hard": {
+    "label": "顶配",
+    "match": "frontier",
+    "effort": "xhigh",
+    "pinned": "gpt-6-astra",
+    "when": "跨多文件或架构改动、根因不明的疑难 bug、涉及钱、数据口径、鉴权、对外发布、需要深度推理的设计"
+  },
+  "normal": {
+    "label": "主力",
+    "match": "workhorse",
+    "effort": "high",
+    "pinned": "gpt-6.1-sol",
+    "when": "目标清楚的常规功能、单模块改动、按明确规范改文档或排版"
+  },
+  "easy": {
+    "label": "轻快",
+    "match": "terra",
+    "effort": "low",
+    "pinned": "gpt-6.1-terra",
+    "when": "侦察摸底、改字改格式、跑脚本整理数据等机械活；联网抓网页、浏览器单默认用这一档"
+  },
+  "known_models": [
+    "gpt-5.6-luna",
+    "gpt-5.6-sol",
+    "gpt-5.6-terra",
+    "gpt-6-astra",
+    "gpt-6-luna",
+    "gpt-6-sol",
+    "gpt-6.1-sol",
+    "gpt-6.1-terra"
+  ],
+  "synced_at": "2026-10-27"
+}
